@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  psql-db:
+    image: postgres
+    container_name: psql-db
+    restart: always
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=log_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data_volume:/var/lib/postgresql/data
+      - ./log.sql:/docker-entrypoint-initdb.d/log.sql
+  image-service:
+    image: docker.io/library/debijenkorf-assignment:0.0.1-SNAPSHOT
+    hostname: image-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: "live"
+    depends_on:
+      - psql-db
+volumes:
+  postgres_data_volume:
