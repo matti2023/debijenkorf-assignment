@@ -1,0 +1,29 @@
+source-root-url: "http://www.debijenkorf.nl/INTERSHOP/static/WFS/dbk-shop-Site/-/dbk-shop/nl_NL/product-images/"
+aws-configuration:
+  endpoint: production-endpoint
+  region: us-east-1
+  accessKey: localstack-access-key
+  secretKey: localstack-secret-key
+
+logdb-endpoint: jdbc:postgresql://psql-db:5432/log_db
+logdb-name: log_db
+logdb-driver-class: org.postgresql.Driver
+logdb-username: username
+logdb-password: password
+
+predefined-image:
+  types:
+    - name: thumbnail
+      height: 100
+      width: 100
+      quality: 80
+      scaleType: CROP
+      fillColor: "#FFFFFF"
+      imageType: JPG
+    - name: detail-large
+      height: 800
+      width: 1200
+      quality: 90
+      scaleType: FILL
+      fillColor: "#000000"
+      imageType: PNG
