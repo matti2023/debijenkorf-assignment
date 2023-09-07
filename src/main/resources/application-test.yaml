@@ -1,0 +1,30 @@
+source-root-url: "https://github.com/audreyfeldroy/test-images/blob/gh-pages/images/"
+aws-configuration:
+  endpoint: http://localhost:4572
+  region: us-east-1
+  accessKey: localstack-access-key
+  secretKey: localstack-secret-key
+
+logdb-endpoint: jdbc:h2:mem:testdb
+logdb-name: testdb
+logdb-username: sa
+logdb-password: password
+
+predefined-image:
+  types:
+  - name: thumbnail
+    height: 100
+    width: 100
+    quality: 80
+    scaleType: CROP
+    fillColor: "#FFFFFF"
+    imageType: JPG
+  - name: detail-large
+    height: 800
+    width: 1200
+    quality: 90
+    scaleType: FILL
+    fillColor: "#000000"
+    imageType: PNG
+
+
